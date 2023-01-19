@@ -1,0 +1,159 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-button routerLink="/home" slot="start" color="success"><ion-icon name="log-in"></ion-icon></ion-button>
+    <ion-button color="danger" slot="end" (click)="onCreateOffer()" [disabled]="!form.valid">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+    <ion-title>
+      <!-- <ion-buttons slot="start">
+        <ion-back-button [defaultHref]="">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-back-button>
+
+      </ion-buttons> -->
+
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-toolbar>
+  <ion-searchbar placeholder="Search here"></ion-searchbar>
+</ion-toolbar>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Title </ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="title"> </ion-input>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row>
+        <ion-col size-sm="3">
+          <ion-item size-sm="6" offset-sm="3">
+            <ion-label></ion-label>
+            <ion-input type="text" autocomplete="true" autocorrect="true"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea rows="3" formControll formControlName="description"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="!form.get('description').valid && form.get('description').touched">
+        <ion-col size-sm="3" offset-sm="3">
+          <p>Description must be between 1 to 180 characters</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="label">Price </ion-label>
+            <ion-input type="number" formControlName="price"></ion-input>
+            <ion-note slot="error">Enter a valid title</ion-note>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row>
+        <ion-col size-sm="3" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Available From <ion-icon name="calendar-sharp"></ion-icon></ion-label>
+            <ion-datetime minuteValues="2023-01-02" formControlName="dateFrom"></ion-datetime>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size-sm="3">
+          <ion-item>
+            <ion-label position="floating">Available To</ion-label>
+            <ion-datetime  formControlName="dateTo"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
+
+      <!-- <ion-item lines="inset">
+        <ion-label >
+          <ion-icon name="star" slot="start"></ion-icon>Button
+          <ion-icon slot="end" name="information-circle"></ion-icon>
+          <ion-avatar  slot="start">                                    //
+            <img src="../../assets/icon/favicon.png" alt="Image">Avatar
+          </ion-avatar>
+          <ion-button color="secondary" size="small">
+            <ion-icon name="location" slot="start" ></ion-icon>
+            Button
+          </ion-button>
+        </ion-label>
+      </ion-item>
+       -->
+
+
+      <!-- <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input placeholder="Enter text"></ion-input>
+      </ion-item> -->
+
+      <!-- <ion-item lines="inset">
+        <ion-label placeholder="make a selection">Select</ion-label>
+        <ion-select >
+          <ion-select-option value="apple">Apple</ion-select-option>
+          <ion-select-option value="banana">Banana</ion-select-option>
+          <ion-select-option value="mango">Mango</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+
+      <!-- <ion-item>
+        <ion-label>Toggle</ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Checkbox</ion-label>
+        <ion-checkbox slot="end"></ion-checkbox>
+      </ion-item> -->
+
+
+      <!-- <ion-item >
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" placeholder="Enter email"></ion-input>
+        <ion-note slot="error">Error</ion-note>
+        <ion-note slot="helper">Please valid email</ion-note>
+      </ion-item> -->
+
+      <!-- <ion-item>
+        <ion-label>Title
+          <h2>Hlo i'm learning ionic</h2>
+        </ion-label>
+        <ion-icon name="home" slot="end"></ion-icon>
+      </ion-item> -->
+
+    </ion-grid>
+  </form>
+
+
+</ion-content>
+
+<ion-segment>
+  <ion-segment-button routerLink="/main-home">
+    <ion-icon name="home" ></ion-icon>
+  </ion-segment-button>
+
+  <ion-segment-button routerLink="/uploads">
+    <ion-icon name="heart" ></ion-icon>
+  </ion-segment-button>
+
+  <ion-segment-button routerLink="/menu">
+    <ion-icon name="menu"></ion-icon>
+  </ion-segment-button>
+</ion-segment>
